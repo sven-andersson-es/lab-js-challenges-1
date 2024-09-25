@@ -59,10 +59,19 @@ function multiplyBy(numbers,multiplier) {
 const original = ["cat", "dog", "fish", "bird", "cat", "fish"];
 const toRemove = ["cat", "dog"];
 
-function filterOut() {}
+function filterOut(original, filter) {
+  const filteredArray = [];
 
-
-
+  if (original.length === 0){
+    return null;
+  }
+  original.forEach(string => {
+    if (!filter.includes(string)){
+        filteredArray.push(string);
+    }    
+  });
+  return filteredArray;
+}
 
 // Iteration 5 | Unique Arrays
 const duplicateWords = [
