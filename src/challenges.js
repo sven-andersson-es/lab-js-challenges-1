@@ -94,7 +94,7 @@ function uniquifyArray(words) {
     return null;
   }
   words.forEach(word => {
-    if (words.includes(word) && !uniquifiedArray.includes(word)) {
+    if (!uniquifiedArray.includes(word)) {
       uniquifiedArray.push(word);
     }
   });
@@ -150,3 +150,31 @@ function greatestProduct(matrix) {
   }
   return product;
 }
+
+//AI Solution proposed when submitting
+function greatestProductIa(matrix) {
+  let product = 0;
+  const numberOfRows = matrix.length;
+  const numberOfColumns = matrix[0].length;
+  for (let i = 0; i < numberOfRows; i++) {
+    for (let j = 0; j < numberOfColumns - 3; j++) {
+      const currentProduct = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
+      if (currentProduct > product) {
+        product = currentProduct;
+      }
+    }
+  }
+  for (let i = 0; i < numberOfRows - 3; i++) {
+    for (let j = 0; j < numberOfColumns; j++) {
+      const currentProduct = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j];
+      if (currentProduct > product) {
+        product = currentProduct;
+      }
+    }
+  }
+  return product;
+}
+
+
+console.log(greatestProduct(matrix));
+console.log(greatestProductIa(matrix));
