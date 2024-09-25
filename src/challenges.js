@@ -27,7 +27,16 @@ function howManyTimes(words,search) {
 
 
 // Iteration 2 | Number Sequence
-function createSequence() {}
+function createSequence(n) {
+  const numberArray = [];
+  if (n === 0){
+    return numberArray;
+  }
+  for (i = 0; i <= n; i++) {
+    numberArray.push(i);
+  }
+  return numberArray;
+}
 
 
 
