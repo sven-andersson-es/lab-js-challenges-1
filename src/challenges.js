@@ -134,11 +134,19 @@ function greatestProduct(matrix) {
   let product = 0;
   matrix.forEach(element => {
     for (i = 0; i < element.length - 3; i++) {
-      const currrentProduct = element[i]*element[i+1]*element[i+2]*element[i+3];
-      if (product < currrentProduct){
-        product = currrentProduct;
+      const currentProduct = element[i]*element[i+1]*element[i+2]*element[i+3];
+      if (product < currentProduct){
+        product = currentProduct;
       };
-    }
+    }   
   });
+  for (i = 0; i < matrix.length - 3; i++) {
+    matrix[i].forEach(element => {
+      const currentProduct = matrix[i][i]*matrix[i+1][i]*matrix[i+2][i]*matrix[i+3][i];
+      if (product < currentProduct){
+        product = currentProduct;
+      };
+    });
+  }
   return product;
 }
